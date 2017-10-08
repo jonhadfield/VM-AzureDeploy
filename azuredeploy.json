@@ -54,6 +54,11 @@
       "sku": {
         "name": "Standard_GRS"
       },
+      "plan": {
+        "name": "kali",
+        "product": "kali-linux",
+        "publisher": "kali-linux"
+      },
       "kind": "Storage",
       "properties": {}
     },
@@ -124,11 +129,6 @@
       "properties": {
         "hardwareProfile": {
           "vmSize": "[parameters('vmSize')]"
-        },
-        "plan": {
-          "name": "kali",
-          "product": "kali-linux",
-          "publisher": "kali-linux"
         },
         "storageProfile": {
           "osDisk": {
