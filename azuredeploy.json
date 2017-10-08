@@ -55,12 +55,12 @@
         "name": "Standard_GRS"
       },
       "kind": "Storage",
-      "properties": {}
-    },
       "plan": {
         "name": "kali",
         "product": "kali-linux",
         "publisher": "kali-linux"
+      },
+      "properties": {}
     },
     {
       "apiVersion": "2015-06-15",
