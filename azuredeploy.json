@@ -55,11 +55,6 @@
         "name": "Standard_GRS"
       },
       "kind": "Storage",
-      "plan": {
-        "name": "kali",
-        "product": "kali-linux",
-        "publisher": "kali-linux"
-      },
       "properties": {}
     },
     {
@@ -123,6 +118,11 @@
       "type": "Microsoft.Compute/virtualMachines",
       "name": "[parameters('vmName')]",
       "location": "[resourceGroup().location]",
+      "plan": {
+        "name": "kali",
+        "product": "kali-linux",
+        "publisher": "kali-linux"
+      },
       "dependsOn": [
         "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
       ],
