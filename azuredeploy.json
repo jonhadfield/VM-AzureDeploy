@@ -125,6 +125,11 @@
         "hardwareProfile": {
           "vmSize": "[parameters('vmSize')]"
         },
+        "plan": {
+          "name": "kali",
+          "product": "kali-linux",
+          "publisher": "kali-linux"
+        },
         "storageProfile": {
           "osDisk": {
             "name": "[concat(parameters('vmName'),'-osDisk')]",
