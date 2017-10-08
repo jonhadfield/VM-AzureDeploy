@@ -38,7 +38,7 @@
     "api-version": "2015-06-15",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks',parameters('virtualNetworkName'))]",
     "subnetRef": "[concat(variables('vnetID'),'/subnets/',parameters('subnetName'))]",
-    "nicName": "specializedVMNic"
+    "nicName": "IAVMNic"
   },
   "resources": [
     {
