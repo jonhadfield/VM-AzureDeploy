@@ -17,6 +17,7 @@
     },
     "vmName": {
       "type": "string",
+      "defaultValue": "BSI-Azure-VM",
       "metadata": {
         "description": "Name of the VM"
       }
@@ -29,7 +30,7 @@
     },
 	"subnetName": {
       "type": "string",
-	  "defaultValue": "Default",
+      "defaultValue": "Default",
       "metadata": {
         "description": "Name of the subnet"
       }
