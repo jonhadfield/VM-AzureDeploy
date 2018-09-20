@@ -24,14 +24,14 @@ The consultant will provide a username, password, and hostname to download the A
 3. Deploy a virtual machine based on the VHD disk. 
 
 #### Method Two - Direct Copy Image
-1. Perform a background transfer of the VHD disk image directly in Azure.
+Perform a background transfer of the VHD disk image directly in Azure.
    * Using Azure CLI
      * The SAS_URL will be provided by the consultant, this will be a time-limited custom URL of our testing image.
      * Once loged into the Azure CLI (https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest) run the following command:	
      
         ```az storage blob copy start --source-uri [SAS_URL] --destination-container [VM Container Name] --destination-blob [BSI-azure-kali.vhd] --account-name [Azure Account Name]```
 
-
+---
    * Using PowerShell
      * The SAS_URL will be provided by the consultant, this will be a time-limited custom URL of our testing image.
      * Once loged into the Azure PowerShell (https://github.com/Azure/azure-powershell#log-in-to-azure) run the following commands:
@@ -48,9 +48,11 @@ The consultant will provide a username, password, and hostname to download the A
         Start-AzureStorageBlobCopy -AbsoluteUri $SAS_URL -DestContainer $DestinationStorageContainer -DestBlob $DestinationBlobName -DestContext $storage.Context
         ```
         
-      * Check the status of the copy:
+     * Check the status of the copy:
         ```
         Get-AzureStorageBlobCopyState -Blob $DestinationBlobName -Container $DestinationStorageContainer -Context $storage.Context
         ```
-
-2. Deploy a virtual machine based on the VHD disk using the link and info above.
+---
+   * Using AzCopy
+     * Further information here: https://docs.microsoft.com/en-us/azure/storage/common/storage-use-azcopy
+     
