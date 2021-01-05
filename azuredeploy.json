@@ -47,34 +47,10 @@
   },
   "resources": [
     {
-    "apiVersion": "2015-06-15",
-    "type": "Microsoft.Network/virtualNetworks",
-    "name": "[parameters('virtualNetworkName')]",
-    "location": "[resourceGroup().location]",
-    "properties": {
-    "addressSpace": {
-      "addressPrefixes": [
-        "[variables('addressPrefix')]"
-      ]
-    },
-    "subnets": [
-      {
-        "name": "[parameters('subnetName')]",
-        "properties": {
-          "addressPrefix": "[variables('subnetPrefix')]"
-        }
-      }
-    ]
-    }
-    },
-    {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Network/networkInterfaces",
-      "name": "[variables('nicName')]",
-      "location": "[resourceGroup().location]",
-      "dependsOn": [
-        "[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"
-      ],
+      "name": "BSI-NIC",
+      "location": "northeurope",
       "properties": {
         "ipConfigurations": [
           {
@@ -82,7 +58,7 @@
             "properties": {
               "privateIPAllocationMethod": "Dynamic",
               "subnet": {
-                "id": "[variables('subnetRef')]"
+                "id": "/subscriptions/f8f2773d-de63-45a3-a568-0edb32155a0b/resourceGroups/hub/providers/Microsoft.Network/virtualNetworks/rpa-hub-nonprod/subnets/bastion"
               }
             }
           }
@@ -92,27 +68,24 @@
     {
       "apiVersion": "2015-06-15",
       "type": "Microsoft.Compute/virtualMachines",
-      "name": "[parameters('vmName')]",
-      "location": "[resourceGroup().location]",
+      "name": "BSI-VM",
+      "location": "northeurope",
       "plan": {
         "name": "kali",
         "product": "kali-linux",
         "publisher": "kali-linux"
       },
-      "dependsOn": [
-        "[concat('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
-      ],
       "properties": {
         "hardwareProfile": {
-          "vmSize": "[parameters('vmSize')]"
+          "vmSize": "Standard_B2s"
         },
         "storageProfile": {
           "osDisk": {
-            "name": "[concat(parameters('vmName'),'-osDisk')]",
+            "name": "/subscriptions/f8f2773d-de63-45a3-a568-0edb32155a0b/resourceGroups/bsi-pen-testing/providers/Microsoft.Compute/disks/bsi-disk",
             "osType": "Linux",
             "caching": "ReadWrite",
             "vhd": {
-              "uri": "[parameters('osDiskVhdUri')]"
+              "uri": "https://bsipentesting.blob.core.windows.net/image/BSI-azure-kali.vhd"
             },
             "createOption": "Attach"
           }
