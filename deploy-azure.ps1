@@ -1,11 +1,11 @@
 #CHANGE THESE
 ########################
-$subscriptionId = 'yourSubscriptionId'
-$resourceGroupName ='yourResourceGroupName'
-$location = 'ukwest'
-$sourceImageUri = 'https://mystorage.blob.core.windows.net/vhds/gold-azure-kali.vhd' 
-$virtualNetworkName = 'yourVNETName'
-$subnetNetworkName = 'yourVNETName'
+$subscriptionId = 'f8f2773d-de63-45a3-a568-0edb32155a0b'
+$resourceGroupName ='bsi-pen-testing'
+$location = 'northeurope'
+$sourceImageUri = 'https://bsipentesting.blob.core.windows.net/image/BSI-azure-kali.vhd'
+$virtualNetworkName = 'rpa-hub-nonprod'
+$subnetNetworkName = 'bastion'
 $virtualMachineName = 'BSI-Kali'
 ########################
 
